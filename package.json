@@ -1,0 +1,50 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrateh": "heroku run knex migrate:latest -a portfoliodata",
+    "rollbackh": "heroku run knex migrate:rollback -a portfoliodata",
+    "deploy": "git push heroku main"
+  },
+  "engines": {
+    "node": "16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/portfolio-data/back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/portfolio-data/back-end/issues"
+  },
+  "homepage": "https://github.com/portfolio-data/back-end#readme",
+  "devDependencies": {
+    "@types/jest": "^27.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.14.0",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
+  },
+  "dependencies": {
+    "@vscode/sqlite3": "^5.0.8",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^1.0.7",
+    "pg": "^8.7.3",
+    "server": "^1.0.37",
+    "sqlite3": "^5.0.8"
+  }
+}
