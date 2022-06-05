@@ -1,5 +1,9 @@
 require('dotenv').config()
-// const pg = require('pg')
+const pg = require('pg')
+
+if (process.env.DATABASE_URL) {
+  pg.defaults.ssl = { rejectUnauthorized: false }
+}
 
 module.exports = {
   //  testing : {
@@ -18,9 +22,10 @@ module.exports = {
   // },
   testing : {
     client : 'pg',
-    connection:  process.env.TESTING_DATABASE_URL,
-      useNullAsDefault: true,  
-      migrations: {
+    connection:  process.env.DATABASE_URL,
+    pool: { min: 2 , max: 10 },
+    useNullAsDefault: true,  
+    migrations: {
         directory: './migrations'
     },
     seeds :{
@@ -30,7 +35,7 @@ module.exports = {
     
   },
 }
-
+// https://stackoverflow.com/questions/54302088/how-to-fix-error-the-server-does-not-support-ssl-connections-when-trying-to-a
 // const pg = require('pg')
 
 // if (process.env.DATABASE_URL) {
