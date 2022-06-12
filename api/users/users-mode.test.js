@@ -8,6 +8,7 @@ test('Check test environment', () =>{
 beforeAll(async () => {  
     await dbConfig.migrate.rollback()
     await dbConfig.migrate.latest()
+    
 })
 
 beforeEach(async () => {
@@ -45,13 +46,13 @@ describe('Test users table', () => {
     })
     describe('Test access to user', () => {
         it('Test findById function', async () => {
-            const findUser = await Users.findById('2')
+            const findUser = await Users.findById('1655039180958')
             //console.log(findUser)
             expect(findUser).toMatchObject({
-                                    userId: '2',
+                                    userId: '1655039180958',
                                     email: 'user1@gmail.com',
                                     username: 'user1',
-                                    password: '123456',
+                                    password: '$2a$08$id3DD0Fljm.jgkS233Sod.YTBXeA52NfZQ8UgUtGmAdSiANc5m6MS',
                                     role: 'user'
                                     })
         })
@@ -65,7 +66,7 @@ describe('Test users table', () => {
                                     userId: '1655039069796',
                                     email:'user2@gmail.com',
                                     username: 'user2',
-                                    password: '123456',
+                                    password:  "$2a$08$vKOOnkGuVBKBC2xRieBObOTZfyuWrp6gHLtTVLv5.u8tYHowN5yRi",
                                     role: 'user'
                                     })
         })
@@ -81,7 +82,7 @@ describe('Test users table', () => {
                 role: 'user'
                 })
             expect(insertName[0]).toMatchObject({
-                userId: '1655039069797',
+                userId: '41655039069797',
                 email:'bloomtech@gmail.com',
                 username: 'Bloomtech',
                 password: '123456',

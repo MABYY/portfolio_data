@@ -26,7 +26,6 @@ router.post('/register', logger, validateBody, checkEmailExists, async (req,res,
 
                         //console.log('newUser')
         const newUser = await UsersAuth.add(userData)
-        console.log('newUser')
         res.status(201).json(newUser[0])
 
     } catch (err){
@@ -38,7 +37,7 @@ router.post('/register', logger, validateBody, checkEmailExists, async (req,res,
 router.post('/login', checkEmailValid, async (req,res,next) =>{
  if(bcrypt.compareSync(req.body.password, req.user.password)){
     const token = buildToken(req.user)
-    res.json({
+    res.status(201).json({
         message: `${req.user.username} is back!`,
         token: token
       })
