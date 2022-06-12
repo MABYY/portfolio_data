@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const fundsData = require('./data-model')
+const  { restricted } = require('../auth/auth-middleware')
 
 const { validateDate} = require('./data-middleware')
 
-router.get('/', async (req, res, next) => {
+router.get('/', restricted, async (req, res, next) => {
     try{
         const fundsArr = await fundsData.findAll()
         if(!fundsArr[0]){
@@ -17,7 +18,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 // validateBody,
-router.get('/select',  async (req, res, next) => {
+router.get('/select', restricted,  async (req, res, next) => {
     try{
         const { Fecha , Nombre_Fondo } = req.body
         const fundsArr = await fundsData.findFund(Fecha, Nombre_Fondo)
@@ -33,7 +34,7 @@ router.get('/select',  async (req, res, next) => {
 })
 
 
-router.get('/selectbydate', validateDate, async (req, res, next) => {
+router.get('/selectbydate', restricted, validateDate, async (req, res, next) => {
     try{
         const { Fecha } = req.body
         const fundsArr = await fundsData.findFundbyDate(Fecha)
@@ -48,7 +49,7 @@ router.get('/selectbydate', validateDate, async (req, res, next) => {
     }
 })
 
-router.post('/select',  async (req, res, next) => {
+router.post('/select',  restricted, async (req, res, next) => {
     try{
         const { Fecha , Nombre_Fondo } = req.body
         const fundsArr = await fundsData.findFund(Fecha, Nombre_Fondo)
@@ -64,7 +65,7 @@ router.post('/select',  async (req, res, next) => {
 })
 
 
-router.post('/selectbydate', validateDate, async (req, res, next) => {
+router.post('/selectbydate',  restricted, validateDate, async (req, res, next) => {
     try{
         const { Fecha } = req.body
         const fundsArr = await fundsData.findFundbyDate(Fecha)

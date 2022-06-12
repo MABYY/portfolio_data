@@ -24,7 +24,7 @@ router.post('/register', logger, validateBody, checkEmailExists, async (req,res,
                            'role': 'user'
                         }
 
-                        console.log('newUser')
+                        //console.log('newUser')
         const newUser = await UsersAuth.add(userData)
         console.log('newUser')
         res.status(201).json(newUser[0])

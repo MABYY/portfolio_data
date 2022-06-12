@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const Users = require('./users-model')
 const  { restricted , only} = require('../auth/auth-middleware')
-
-router.get('/', restricted, only('admin'), async (req, res, next) => {
+//
+router.get('/', restricted, only('admin'),async (req, res, next) => {
     try{
         const users = await Users.getAllUsers()
         if(users) {
