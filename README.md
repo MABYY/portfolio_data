@@ -2,5 +2,5 @@
 
 ## Deployment hosted in Heroku
 
-[(https://portfoliodata.herokuapp.com/)
+https://portfoliodata.herokuapp.com/
 
