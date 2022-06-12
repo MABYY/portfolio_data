@@ -34,6 +34,20 @@ module.exports = {
     },
     
   },
+  development : {
+    client : 'pg',
+    connection:  process.env.DATABASE_URL,
+    pool: { min: 2 , max: 10 },
+
+    migrations: {
+        directory: './migrations'
+    },
+    seeds :{
+        directory:'./seeds'
+  
+    },
+    
+  },
 }
 // https://stackoverflow.com/questions/54302088/how-to-fix-error-the-server-does-not-support-ssl-connections-when-trying-to-a
 // const pg = require('pg')

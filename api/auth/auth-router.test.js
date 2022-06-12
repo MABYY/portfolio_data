@@ -39,7 +39,8 @@ describe('[POST] /register', () => {
            .post('/api/auth/login').send({ email: 'admin@gmail.com', 
                                            password:"123456"
                                         })
-           expect(res.statusCode).toBe(201)           
+           expect(res.statusCode).toBe(201)
+           
        })
    
     describe('[GET] /', () => {
