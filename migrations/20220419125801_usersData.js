@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.createTable('usersData', tbl => {
-      tbl.string('userId').unique()
+      tbl.string('userId').unique().notNullable()
       tbl.string('email').unique().notNullable()
       tbl.string('username').notNullable()
       tbl.string('password').notNullable()

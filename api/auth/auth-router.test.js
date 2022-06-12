@@ -29,9 +29,9 @@ describe('[GET] /', () => {
 describe('[POST] /register', () => {
      test('Registers new user', async () => {
         const res = await request(server)
-            .post('/api/auth/register').send({ username: 'newUser4' , password: 'password1234'})
+            .post('/api/auth/register').send({ email: 'user1@gmail.com' , password: '1234'})
             expect(res.statusCode).toBe(201)
-            expect(res.body.username).toBe('newUser4')
+            expect(res.body.username).toBe('user1')
         })
     
   })
