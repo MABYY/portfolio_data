@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
     "start": "node index.js",
-    "server": "nodemon index.js"
-
+    "server": "nodemon index.js",
+    "migrateh": "heroku run knex migrate:latest -a portdata",
+    "rollbackh": "heroku run knex migrate:rollback -a portdata",
+    "seedh": "heroku run knex seed:run -a portdata",
+    "databaseh": "heroku pg:psql -a portdata",
+    "deploy": "git push heroku main"
   },
   "engines": {
     "node": "16.13.1"

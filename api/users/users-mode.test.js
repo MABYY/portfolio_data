@@ -27,6 +27,7 @@ describe('Test users table', () => {
         it('Test getAllUsers properties', async () => {
             const data = await Users.getAllUsers()
             expect(data[0]).toHaveProperty('userId')
+            expect(data[0]).toHaveProperty('email')
             expect(data[0]).toHaveProperty('username')
             expect(data[0]).toHaveProperty('password')
             expect(data[0]).toHaveProperty('role')
@@ -35,6 +36,7 @@ describe('Test users table', () => {
         it('Test getAllUsers datatypes', async () => {
             const data = await Users.getAllUsers()
             expect(typeof data[0].userId).toBe('string')
+            expect(typeof data[0].email).toBe('string')
             expect(typeof data[0].username).toBe('string')
             expect(typeof data[0].password).toBe('string')
             expect(typeof data[0].role).toBe('string')
@@ -47,8 +49,9 @@ describe('Test users table', () => {
             //console.log(findUser)
             expect(findUser).toMatchObject({
                                     userId: '2',
-                                    username: 'user2',
-                                    password: 'user2',
+                                    email: 'user1@gmail.com',
+                                    username: 'user1',
+                                    password: '123456',
                                     role: 'user'
                                     })
         })
@@ -59,9 +62,10 @@ describe('Test users table', () => {
             const findName = await Users.findByName('user2')
             //console.log(findName)
             expect(findName[0]).toMatchObject({
-                                    userId: '2',
+                                    userId: '1655039069796',
+                                    email:'user2@gmail.com',
                                     username: 'user2',
-                                    password: 'user2',
+                                    password: '123456',
                                     role: 'user'
                                     })
         })
@@ -70,15 +74,17 @@ describe('Test users table', () => {
     describe('Add user', () => {
         it('Test add function', async () => {
             const insertName = await Users.add({
-                userId: '4',
+                userId: '41655039069797',
+                email:'bloomtech@gmail.com',
                 username: 'Bloomtech',
-                password: 'bloomtech',
+                password: '123456',
                 role: 'user'
                 })
             expect(insertName[0]).toMatchObject({
-                userId: '4',
+                userId: '1655039069797',
+                email:'bloomtech@gmail.com',
                 username: 'Bloomtech',
-                password: 'bloomtech',
+                password: '123456',
                 role: 'user'
                 })
         })
@@ -86,7 +92,7 @@ describe('Test users table', () => {
 
     describe('Delete user', () => {
         it('Test deleteUserById function', async () => {
-            const findName = await Users.deleteUserById('2')
+            const findName = await Users.deleteUserById('1655039180958')
             expect(findName).toBe(1)
         })
     })  
