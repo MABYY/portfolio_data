@@ -6,6 +6,8 @@
   "scripts": {
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
     "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
     "server": "nodemon index.js",
     "migrateh": "heroku run knex migrate:latest -a portdata",
     "rollbackh": "heroku run knex migrate:rollback -a portdata",
@@ -37,7 +39,6 @@
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@vscode/sqlite3": "^5.0.8",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -47,7 +48,6 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.7",
     "pg": "^8.7.3",
-    "server": "^1.0.37",
-    "sqlite3": "^5.0.8"
+    "server": "^1.0.37"
   }
 }
