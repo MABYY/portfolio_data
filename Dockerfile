@@ -5,7 +5,7 @@ WORKDIR /PORTFOLIO_DATA
 COPY .env ./
 
 # Install build dependencies for bcrypt
-RUN apk add --no-cache python3 make g++ linux-headers postgresql-clien
+RUN apk add --no-cache python3 make g++ linux-headers postgresql-client
 
 COPY package*.json ./
 
