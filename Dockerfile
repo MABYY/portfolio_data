@@ -18,6 +18,6 @@ COPY wait-for-db.sh /wait-for-db.sh
 
 RUN chmod +x /startfile.sh /wait-for-db.sh
 
-EXPOSE 3000
+EXPOSE ${PORT}
 
 ENTRYPOINT ["/wait-for-db.sh", "db", "5432", "/startfile.sh"]
